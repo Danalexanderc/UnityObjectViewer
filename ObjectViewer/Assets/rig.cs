@@ -23,7 +23,7 @@ public class rig : MonoBehaviour
     void FixedUpdate()
     {
         rotationDelta = 4;
-        defaultScale.Set(5f, 5f, 5f);
+        defaultScale.Set(0.5f, 0.5f, 0.5f);
 
         // Rotation controls
         if (Input.GetKey("u"))
@@ -38,16 +38,17 @@ public class rig : MonoBehaviour
             rotZ += rotationDelta;
         if (Input.GetKey("l"))
             rotZ -= rotationDelta;
-        if (Input.GetKey("r"))
+
+        if (Input.GetKey("r")) // Reset scale and rotation.
         { rotX = 0; rotY = 0; rotZ = 0;
             t.localScale = defaultScale;
         }
 
         // Scale controls
         if (Input.GetKey("y"))
-            scaleChange.Set(0.1f, 0.1f, 0.1f);
+            scaleChange.Set(0.01f, 0.01f, 0.01f);
         else if (Input.GetKey("h"))
-            scaleChange.Set(-0.1f, -0.1f, -0.1f);
+            scaleChange.Set(-0.01f, -0.01f, -0.01f);
         else
             scaleChange.Set(0f, 0f, 0f);
 
